@@ -11,7 +11,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Install eslint
-        run: sudo apt install eslint -Y
+        run: sudo apt install eslint -y
       - name: Lint
         run: eslint --ext .jsx --fix src
       - run: echo "Linting done"
