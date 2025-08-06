@@ -10,6 +10,8 @@ jobs:
         uses: actions/setup-node@v4
       - name: Install dependencies
         run: npm ci
+      - name: Install eslint
+        run: sudo apt install eslint -Y
       - name: Lint
         run: eslint --ext .jsx --fix src
       - run: echo "Linting done"
