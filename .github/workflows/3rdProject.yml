@@ -9,11 +9,14 @@ jobs:
       - name: install node
         uses: actions/setup-node@v4
       - name: Install dependencies
-        run: npm ci
+        run: |
+          npm ci
+          npm install --save-dev @babel/eslint-parser @babel/core
+          npm install --save-dev @babel/preset-react
       - name: Install eslint
         run: sudo apt install eslint -y
       - name: Lint
-        run: eslint --ext .jsx --fix src
+        run: npx eslint . --ext .js,.jsx
       - run: echo "Linting done"
   Test:
     needs: Lint
